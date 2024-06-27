@@ -1,7 +1,7 @@
 import DatePicker from 'react-native-date-picker';
-import {Controller, useForm} from 'react-hook-form';
 import React, {useState, type FC} from 'react';
-import {ActivityIndicator, ScrollView, Text, View} from 'react-native';
+import {Controller, useForm} from 'react-hook-form';
+import {ScrollView, Text, View} from 'react-native';
 
 import {IProduct} from '../../api';
 import {formatDate} from '../../utils';
@@ -154,18 +154,12 @@ export const ProductFormView: FC<ProductFormViewProps> = ({
 
         <View style={styles.footer}>
           <Button
+            loading={formState.isSubmitting}
             disabled={formState.isSubmitting}
             color={ThemeColor.PrimaryButtonColor}
             background={ThemeColor.PrimaryButtonBackground}
             onPress={handleSubmit(onFormSubmit)}>
-            {formState.isSubmitting ? (
-              <ActivityIndicator
-                color={ThemeColor.PrimaryButtonColor}
-                size="small"
-              />
-            ) : (
-              'Enviar'
-            )}
+            Enviar
           </Button>
 
           <Button

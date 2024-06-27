@@ -14,14 +14,19 @@ import {useGetProductList} from '../../hooks';
 import {Button, Input} from '../../components';
 import {MainNavigatorRoute} from '../../navigators';
 import {useProductListScreenStyles} from './ProductListScreen.styles';
+import {ProductListScreenLoading} from './ProductListScreen.loading';
 
 export const ProductListScreen: FC = () => {
   const navigation = useNavigation();
   const styles = useProductListScreenStyles();
-  const {data, isFetching: _} = useGetProductList();
+  const {data: productsData, isFetching: isFetchingProductList} =
+    useGetProductList();
 
   const [searchCriteria, setSearchCriteria] = useState('');
-  const filteredProducts = useFilterProductList(data?.data, searchCriteria);
+  const filteredProducts = useFilterProductList(
+    productsData?.data,
+    searchCriteria,
+  );
 
   const goToProductDetail = (product: IProduct) => {
     navigation.navigate(MainNavigatorRoute.ProductDetail, {product});
@@ -39,15 +44,19 @@ export const ProductListScreen: FC = () => {
         onChangeText={setSearchCriteria}
       />
 
-      <FlatList
-        data={filteredProducts}
-        style={styles.productListContainer}
-        ItemSeparatorComponent={ProductListSeparator}
-        ListEmptyComponent={ProductListEmpty}
-        renderItem={({item: product}) => (
-          <ProductItem product={product} onItemPress={goToProductDetail} />
-        )}
-      />
+      {isFetchingProductList ? (
+        <ProductListScreenLoading />
+      ) : (
+        <FlatList
+          data={filteredProducts}
+          style={styles.productListContainer}
+          ItemSeparatorComponent={ProductListSeparator}
+          ListEmptyComponent={ProductListEmpty}
+          renderItem={({item: product}) => (
+            <ProductItem product={product} onItemPress={goToProductDetail} />
+          )}
+        />
+      )}
 
       <Button
         style={styles.footerButton}
