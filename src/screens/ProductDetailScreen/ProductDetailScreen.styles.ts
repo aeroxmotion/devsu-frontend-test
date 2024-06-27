@@ -41,4 +41,7 @@ export const useProductDetailScreenStyles = (
     footer: {
       gap: 10,
     },
+    bottomSheetButtonsContainer: {
+      gap: 12,
+    },
   });

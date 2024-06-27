@@ -29,9 +29,15 @@ export class HTTPProductClient {
       .json<DefaultHTTPResponse<Omit<IProduct, 'id'>>>();
   }
 
-  verifyProductID(productID: string) {
+  verifyProductID(productID: IProduct['id']) {
     return this._client
       .get(`products/verification/${encodeURIComponent(productID)}`)
       .json<boolean>();
+  }
+
+  deleteProduct(productID: IProduct['id']) {
+    return this._client
+      .delete(`products/${encodeURIComponent(productID)}`)
+      .json<DefaultHTTPResponse<never>>();
   }
 }

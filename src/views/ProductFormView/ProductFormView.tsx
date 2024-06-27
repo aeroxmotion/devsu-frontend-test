@@ -169,8 +169,8 @@ export const ProductFormView: FC<ProductFormViewProps> = ({
           </Button>
 
           <Button
-            disabled={formState.isSubmitting}
             onPress={resetFormValues}
+            disabled={formState.isSubmitting}
             color={ThemeColor.SimpleButtonColor}
             background={ThemeColor.SimpleButtonBackground}>
             Reiniciar
@@ -181,10 +181,10 @@ export const ProductFormView: FC<ProductFormViewProps> = ({
       <DatePicker
         modal
         mode="date"
-        minimumDate={MINIMUM_RELEASE_DATE}
-        date={getValues().date_release as Date}
         open={openDateReleasePicker}
         onConfirm={setDateReleaseValue}
+        minimumDate={MINIMUM_RELEASE_DATE}
+        date={getValues().date_release as Date}
         onCancel={() => setOpenDateReleasePicker(false)}
       />
     </>
