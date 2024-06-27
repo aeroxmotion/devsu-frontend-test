@@ -1,4 +1,5 @@
 import React, {type FC} from 'react';
+import Toast from 'react-native-toast-message';
 import {useNavigation, useRoute} from '@react-navigation/native';
 
 import {IProduct} from '../../api';
@@ -25,6 +26,12 @@ export const EditProductScreen: FC = () => {
       onFormSubmit={updatedProduct =>
         updateProductMutation.mutateAsync(updatedProduct, {
           onSuccess({data}) {
+            Toast.show({
+              type: 'success',
+              text1: 'Producto actualizado exitosamente.',
+              visibilityTime: 2000,
+            });
+
             goBackToProductDetail({...data, id: updatedProduct.id});
           },
         })
