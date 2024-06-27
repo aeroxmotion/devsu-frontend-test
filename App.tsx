@@ -1,4 +1,5 @@
 import React, {type FC} from 'react';
+import Toast from 'react-native-toast-message';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {QueryClient, QueryClientProvider} from 'react-query';
 
@@ -16,6 +17,8 @@ export const App: FC = () => {
       <SafeAreaView style={styles.container}>
         <MainNavigator />
       </SafeAreaView>
+
+      <Toast />
     </QueryClientProvider>
   );
 };
