@@ -3,6 +3,6 @@ export interface IProduct {
   name: string;
   description: string;
   logo: string;
-  date_release: string;
-  date_revision: string;
+  date_release: Date | string;
+  date_revision: Date | string;
 }

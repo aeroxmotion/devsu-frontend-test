@@ -7,7 +7,12 @@ import {
 
 import {MainNavigatorRoute} from './MainNavigator.types';
 import {useMainNavigatorStyles} from './MainNavigator.styles';
-import {ProductDetailScreen, ProductListScreen} from '../../screens';
+import {
+  EditProductScreen,
+  NewProductScreen,
+  ProductDetailScreen,
+  ProductListScreen,
+} from '../../screens';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +32,16 @@ export const MainNavigator: FC = () => {
       <Stack.Navigator
         initialRouteName={MainNavigatorRoute.ProductList}
         screenOptions={screenOptions}>
+        <Stack.Screen
+          name={MainNavigatorRoute.NewProduct}
+          component={NewProductScreen}
+        />
+
+        <Stack.Screen
+          name={MainNavigatorRoute.EditProduct}
+          component={EditProductScreen}
+        />
+
         <Stack.Screen
           name={MainNavigatorRoute.ProductList}
           component={ProductListScreen}

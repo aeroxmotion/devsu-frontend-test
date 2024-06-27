@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {useRoute} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import {Image, ScrollView, Text, View} from 'react-native';
 
 import {
@@ -12,8 +12,10 @@ import {Button} from '../../components';
 import {ThemeColor} from '../../constants';
 import {ProductDetailField} from './components';
 import {useAutoScaleImageHeight} from '../../hooks';
+import {MainNavigatorRoute} from '../../navigators';
 
 export const ProductDetailScreen: FC = () => {
+  const navigation = useNavigation();
   const {product} = useRoute().params as {product: IProduct};
   const productLogoHeight = useAutoScaleImageHeight(
     PRODUCT_LOGO_WIDTH,
@@ -22,6 +24,10 @@ export const ProductDetailScreen: FC = () => {
   const styles = useProductDetailScreenStyles({
     logoHeight: productLogoHeight,
   });
+
+  const goToEditProduct = () => {
+    navigation.navigate(MainNavigatorRoute.EditProduct, {product});
+  };
 
   return (
     <View style={styles.container}>
@@ -60,7 +66,8 @@ export const ProductDetailScreen: FC = () => {
       <View style={styles.footer}>
         <Button
           color={ThemeColor.SimpleButtonColor}
-          background={ThemeColor.SimpleButtonBackground}>
+          background={ThemeColor.SimpleButtonBackground}
+          onPress={goToEditProduct}>
           Editar
         </Button>
 

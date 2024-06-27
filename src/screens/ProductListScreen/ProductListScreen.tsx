@@ -8,9 +8,10 @@ import {
   ProductListSeparator,
 } from './components';
 import {IProduct} from '../../api';
-import {Input} from '../../components';
+import {ThemeColor} from '../../constants';
 import {useFilterProductList} from './hooks';
 import {useGetProductList} from '../../hooks';
+import {Button, Input} from '../../components';
 import {MainNavigatorRoute} from '../../navigators';
 import {useProductListScreenStyles} from './ProductListScreen.styles';
 
@@ -24,6 +25,10 @@ export const ProductListScreen: FC = () => {
 
   const goToProductDetail = (product: IProduct) => {
     navigation.navigate(MainNavigatorRoute.ProductDetail, {product});
+  };
+
+  const goToNewProduct = () => {
+    navigation.navigate(MainNavigatorRoute.NewProduct, {});
   };
 
   return (
@@ -43,6 +48,14 @@ export const ProductListScreen: FC = () => {
           <ProductItem product={product} onItemPress={goToProductDetail} />
         )}
       />
+
+      <Button
+        style={styles.footerButton}
+        color={ThemeColor.PrimaryButtonColor}
+        background={ThemeColor.PrimaryButtonBackground}
+        onPress={goToNewProduct}>
+        Agregar
+      </Button>
     </View>
   );
 };

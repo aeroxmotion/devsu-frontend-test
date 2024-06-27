@@ -6,12 +6,12 @@ export const useProductListScreenStyles = () =>
   StyleSheet.create({
     container: {
       flex: 1,
+      gap: 32,
       paddingHorizontal: 24,
       paddingVertical: 40,
     },
     productListContainer: {
       flexGrow: 0,
-      marginTop: 32,
       borderColor: ThemeColor.Border,
       borderWidth: 1,
       borderRadius: 8,
@@ -19,5 +19,8 @@ export const useProductListScreenStyles = () =>
     productListSeparator: {
       height: 1,
       backgroundColor: ThemeColor.Border,
+    },
+    footerButton: {
+      marginTop: 'auto',
     },
   });

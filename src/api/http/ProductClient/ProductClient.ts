@@ -10,4 +10,18 @@ export class HTTPProductClient extends HTTPBaseClient {
   getList() {
     return this.get<IProduct[]>('products');
   }
+
+  addNewProduct(product: IProduct) {
+    return this.post<IProduct>('products', product);
+  }
+
+  updateProduct({id, ...product}: IProduct) {
+    return this.put<IProduct>(`products/${encodeURIComponent(id)}`, product);
+  }
+
+  verifyProductID(productID: string) {
+    return this.get<boolean>(
+      `products/verification/${encodeURIComponent(productID)}`,
+    );
+  }
 }

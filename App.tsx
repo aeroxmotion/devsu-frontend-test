@@ -4,7 +4,7 @@ import {QueryClient, QueryClientProvider} from 'react-query';
 
 import {MainNavigator} from './src';
 
-const queryClient = new QueryClient();
+export const queryClient = new QueryClient();
 
 export const App: FC = () => {
   const styles = StyleSheet.create({
