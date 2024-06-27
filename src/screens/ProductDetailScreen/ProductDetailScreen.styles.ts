@@ -1,7 +1,13 @@
 import {StyleSheet} from 'react-native';
-import {ThemeColor} from '../../constants';
 
-export const useProductDetailScreenStyles = () =>
+import {ThemeColor} from '../../constants';
+import {type UseProductDetailScreenStyleProps} from '../ProductListScreen/ProductListScreen.types';
+
+export const PRODUCT_LOGO_WIDTH = 100;
+
+export const useProductDetailScreenStyles = (
+  props: UseProductDetailScreenStyleProps,
+) =>
   StyleSheet.create({
     container: {
       flex: 1,
@@ -24,8 +30,8 @@ export const useProductDetailScreenStyles = () =>
     logo: {
       marginLeft: 'auto',
       marginRight: 'auto',
-      width: 100,
-      height: 100,
+      width: PRODUCT_LOGO_WIDTH,
+      height: props.logoHeight,
     },
     fields: {
       gap: 16,

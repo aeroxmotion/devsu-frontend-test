@@ -1,5 +1,6 @@
 import {FlatList, View} from 'react-native';
 import React, {useState, type FC} from 'react';
+import {useNavigation} from '@react-navigation/native';
 
 import {
   ProductItem,
@@ -10,9 +11,8 @@ import {IProduct} from '../../api';
 import {Input} from '../../components';
 import {useFilterProductList} from './hooks';
 import {useGetProductList} from '../../hooks';
-import {useProductListScreenStyles} from './ProductListScreen.styles';
-import {useNavigation} from '@react-navigation/native';
 import {MainNavigatorRoute} from '../../navigators';
+import {useProductListScreenStyles} from './ProductListScreen.styles';
 
 export const ProductListScreen: FC = () => {
   const navigation = useNavigation();

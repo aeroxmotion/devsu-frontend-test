@@ -2,16 +2,26 @@ import React, {FC} from 'react';
 import {useRoute} from '@react-navigation/native';
 import {Image, ScrollView, Text, View} from 'react-native';
 
+import {
+  PRODUCT_LOGO_WIDTH,
+  useProductDetailScreenStyles,
+} from './ProductDetailScreen.styles';
 import {IProduct} from '../../api';
 import {formatDate} from '../../utils';
 import {Button} from '../../components';
 import {ThemeColor} from '../../constants';
 import {ProductDetailField} from './components';
-import {useProductDetailScreenStyles} from './ProductDetailScreen.styles';
+import {useAutoScaleImageHeight} from '../../hooks';
 
 export const ProductDetailScreen: FC = () => {
-  const styles = useProductDetailScreenStyles();
   const {product} = useRoute().params as {product: IProduct};
+  const productLogoHeight = useAutoScaleImageHeight(
+    PRODUCT_LOGO_WIDTH,
+    product.logo,
+  );
+  const styles = useProductDetailScreenStyles({
+    logoHeight: productLogoHeight,
+  });
 
   return (
     <View style={styles.container}>
