@@ -52,6 +52,8 @@ export const ProductFormView: FC<ProductFormViewProps> = ({
     );
   };
 
+  console.log('Is submitting:', formState.isSubmitting);
+
   return (
     <>
       <View style={styles.container}>
@@ -169,6 +171,7 @@ export const ProductFormView: FC<ProductFormViewProps> = ({
           </Button>
 
           <Button
+            disabled={formState.isSubmitting}
             onPress={resetFormValues}
             color={ThemeColor.SimpleButtonColor}
             background={ThemeColor.SimpleButtonBackground}>

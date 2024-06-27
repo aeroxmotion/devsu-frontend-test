@@ -23,7 +23,7 @@ export const EditProductScreen: FC = () => {
       title="Editar producto"
       product={product}
       onFormSubmit={updatedProduct =>
-        updateProductMutation.mutate(updatedProduct, {
+        updateProductMutation.mutateAsync(updatedProduct, {
           onSuccess({data}) {
             goBackToProductDetail({...data, id: updatedProduct.id});
           },

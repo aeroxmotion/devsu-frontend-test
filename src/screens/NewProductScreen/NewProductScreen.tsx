@@ -12,7 +12,7 @@ export const NewProductScreen: FC = () => {
     <ProductFormView
       title="Nuevo producto"
       onFormSubmit={product =>
-        addNewProductMutation.mutate(product, {
+        addNewProductMutation.mutateAsync(product, {
           onSuccess() {
             navigation.goBack();
           },
