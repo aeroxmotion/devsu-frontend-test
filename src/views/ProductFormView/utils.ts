@@ -2,7 +2,8 @@ import debounce from 'lodash.debounce';
 import {type Validate} from 'react-hook-form';
 
 import {HTTPProductClient, type IProduct} from '../../api';
-import {YEAR_MILLISECONDS} from './constants';
+
+const YEAR_MILLISECONDS = 365 * 24 * 60 * 60 * 1000;
 
 export const computeNextDateRevision = (releaseDate: Date) =>
   new Date(Number(releaseDate) + YEAR_MILLISECONDS);

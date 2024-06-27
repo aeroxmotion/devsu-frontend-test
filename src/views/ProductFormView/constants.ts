@@ -1,11 +1,18 @@
 import {UseControllerProps} from 'react-hook-form';
 
 import {IProduct} from '../../api';
-import {validateProductID} from './utils';
-
-export const YEAR_MILLISECONDS = 365 * 24 * 60 * 60 * 1000;
+import {computeNextDateRevision, validateProductID} from './utils';
 
 export const MINIMUM_RELEASE_DATE = new Date();
+
+export const INITIAL_FORM_DEFAULT_VALUES: IProduct = {
+  id: '',
+  name: '',
+  description: '',
+  logo: '',
+  date_release: new Date(),
+  date_revision: computeNextDateRevision(new Date()),
+};
 
 export const FORM_RULES: Record<
   keyof IProduct,

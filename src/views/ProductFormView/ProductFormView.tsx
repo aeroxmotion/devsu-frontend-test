@@ -1,6 +1,6 @@
 import DatePicker from 'react-native-date-picker';
 import {Controller, useForm} from 'react-hook-form';
-import React, {useMemo, useState, type FC} from 'react';
+import React, {useState, type FC} from 'react';
 import {ActivityIndicator, ScrollView, Text, View} from 'react-native';
 
 import {IProduct} from '../../api';
@@ -8,7 +8,11 @@ import {formatDate} from '../../utils';
 import {ThemeColor} from '../../constants';
 import {Button, Input} from '../../components';
 import {computeNextDateRevision} from './utils';
-import {FORM_RULES, MINIMUM_RELEASE_DATE} from './constants';
+import {
+  FORM_RULES,
+  INITIAL_FORM_DEFAULT_VALUES,
+  MINIMUM_RELEASE_DATE,
+} from './constants';
 import {ProductFormViewProps} from './ProductFormView.types';
 import {useProductFormViewStyles} from './ProductFormView.styles';
 
@@ -18,30 +22,18 @@ export const ProductFormView: FC<ProductFormViewProps> = ({
   product,
 }) => {
   const styles = useProductFormViewStyles();
-  const initialDefaultValues = useMemo(
-    () =>
-      product
-        ? {
-            ...product,
-            date_release: new Date(product.date_release),
-            date_revision: new Date(product.date_revision),
-          }
-        : {
-            id: '',
-            name: '',
-            description: '',
-            logo: '',
-            date_release: new Date(),
-            date_revision: computeNextDateRevision(new Date()),
-          },
-    [product],
-  );
 
   const {control, setValue, getValues, reset, handleSubmit, formState} =
     useForm<IProduct>({
       mode: 'onTouched',
       criteriaMode: 'all',
-      defaultValues: initialDefaultValues,
+      defaultValues: product
+        ? {
+            ...product,
+            date_release: new Date(product.date_release),
+            date_revision: new Date(product.date_revision),
+          }
+        : INITIAL_FORM_DEFAULT_VALUES,
     });
 
   const [openDateReleasePicker, setOpenDateReleasePicker] = useState(false);
@@ -53,7 +45,11 @@ export const ProductFormView: FC<ProductFormViewProps> = ({
   };
 
   const resetFormValues = () => {
-    reset(initialDefaultValues);
+    reset(
+      product
+        ? {...INITIAL_FORM_DEFAULT_VALUES, id: product.id}
+        : INITIAL_FORM_DEFAULT_VALUES,
+    );
   };
 
   return (
