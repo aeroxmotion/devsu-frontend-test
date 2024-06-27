@@ -14,9 +14,11 @@ export const useProductItemStyles = () =>
     },
     nameField: {
       fontWeight: 'bold',
+      fontSize: 14,
       color: ThemeColor.Text,
     },
     idField: {
+      fontSize: 14,
       color: ThemeColor.Text,
     },
     rightIcon: {

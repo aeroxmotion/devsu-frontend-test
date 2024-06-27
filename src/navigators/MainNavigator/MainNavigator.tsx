@@ -5,9 +5,9 @@ import {
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
 
-import {ProductListScreen} from '../../screens';
 import {MainNavigatorRoute} from './MainNavigator.types';
 import {useMainNavigatorStyles} from './MainNavigator.styles';
+import {ProductDetailScreen, ProductListScreen} from '../../screens';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +30,11 @@ export const MainNavigator: FC = () => {
         <Stack.Screen
           name={MainNavigatorRoute.ProductList}
           component={ProductListScreen}
+        />
+
+        <Stack.Screen
+          name={MainNavigatorRoute.ProductDetail}
+          component={ProductDetailScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

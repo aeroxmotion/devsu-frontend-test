@@ -8,7 +8,9 @@ export const ProductItem: FC<ProductItemProps> = ({product, onItemPress}) => {
   const styles = useProductItemStyles();
 
   return (
-    <TouchableOpacity style={styles.touchable} onPress={onItemPress}>
+    <TouchableOpacity
+      style={styles.touchable}
+      onPress={() => onItemPress(product)}>
       <View style={styles.wrapper}>
         <Text style={styles.nameField} numberOfLines={1}>
           {product.name}

@@ -2,5 +2,5 @@ import {type IProduct} from '../../../../api';
 
 export interface ProductItemProps {
   product: IProduct;
-  onItemPress: () => void;
+  onItemPress: (product: IProduct) => void;
 }
