@@ -52,8 +52,6 @@ export const ProductFormView: FC<ProductFormViewProps> = ({
     );
   };
 
-  console.log('Is submitting:', formState.isSubmitting);
-
   return (
     <>
       <View style={styles.container}>
