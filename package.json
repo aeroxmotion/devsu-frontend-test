@@ -13,6 +13,7 @@
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
     "@types/lodash.debounce": "^4.0.9",
+    "ky": "^1.4.0",
     "lodash.debounce": "^4.0.8",
     "react": "18.2.0",
     "react-hook-form": "^7.52.0",

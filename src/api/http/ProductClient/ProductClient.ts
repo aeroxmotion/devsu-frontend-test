@@ -1,27 +1,37 @@
-import {HTTPBaseClient} from '../BaseClient';
+import ky from 'ky';
+
 import {IProduct} from './ProductClient.types';
 import {BASE_HTTP_API_URL} from '../../../constants';
+import {DefaultHTTPResponse} from '../types';
 
-export class HTTPProductClient extends HTTPBaseClient {
-  constructor() {
-    super(BASE_HTTP_API_URL);
-  }
+export class HTTPProductClient {
+  private _client = ky.extend({
+    prefixUrl: BASE_HTTP_API_URL,
+  });
 
   getList() {
-    return this.get<IProduct[]>('products');
+    return this._client.get('products').json<DefaultHTTPResponse<IProduct[]>>();
   }
 
   addNewProduct(product: IProduct) {
-    return this.post<IProduct>('products', product);
+    return this._client
+      .post('products', {
+        json: product,
+      })
+      .json<DefaultHTTPResponse<IProduct>>();
   }
 
   updateProduct({id, ...product}: IProduct) {
-    return this.put<IProduct>(`products/${encodeURIComponent(id)}`, product);
+    return this._client
+      .put(`products/${encodeURIComponent(id)}`, {
+        json: product,
+      })
+      .json<DefaultHTTPResponse<Omit<IProduct, 'id'>>>();
   }
 
   verifyProductID(productID: string) {
-    return this.get<boolean>(
-      `products/verification/${encodeURIComponent(productID)}`,
-    );
+    return this._client
+      .get(`products/verification/${encodeURIComponent(productID)}`)
+      .json<boolean>();
   }
 }
