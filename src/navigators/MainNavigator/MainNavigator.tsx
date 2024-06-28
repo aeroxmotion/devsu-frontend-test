@@ -13,6 +13,7 @@ import {
   ProductDetailScreen,
   ProductListScreen,
 } from '../../screens';
+import {MainNavigatorTitle} from './components/MainNavigatorTitle';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,10 +21,9 @@ export const MainNavigator: FC = () => {
   const styles = useMainNavigatorStyles();
 
   const screenOptions: NativeStackNavigationOptions = {
-    headerTitle: 'BANCO',
+    headerTitle: MainNavigatorTitle,
     headerTitleAlign: 'center',
     headerShadowVisible: false,
-    headerTitleStyle: styles.headerTitle,
     contentStyle: styles.content,
   };
 
