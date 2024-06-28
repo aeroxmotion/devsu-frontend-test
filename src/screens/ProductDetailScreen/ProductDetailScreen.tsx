@@ -67,6 +67,7 @@ export const ProductDetailScreen: FC = () => {
               // eslint-disable-next-line react/no-unstable-nested-components
               value={() => (
                 <Image
+                  testID="image-logo"
                   source={{uri: product.logo}}
                   style={styles.logo}
                   resizeMode="contain"
@@ -104,12 +105,14 @@ export const ProductDetailScreen: FC = () => {
       </View>
 
       <BottomSheet
+        testID="delete-product-bottom-sheet"
         content={`¿Estás seguro de eliminar el producto ${product.name}?`}
         visible={visibleDeleteProductBottomSheet}
         onClose={closeDeleteOpenProductBottomSheet}
         footer={
           <View style={styles.bottomSheetButtonsContainer}>
             <Button
+              testID="confirm-deletion-btn"
               color={ThemeColor.PrimaryButtonColor}
               loading={deleteProductMutation.isLoading}
               background={ThemeColor.PrimaryButtonBackground}

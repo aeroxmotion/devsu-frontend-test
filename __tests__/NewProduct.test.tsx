@@ -41,7 +41,7 @@ jest.mock('react-native-toast-message', () => {
   return ToastMock;
 });
 
-describe('NewProductScreen', () => {
+describe('NewProduct', () => {
   it('should render new product screen with its initial default form field values', () => {
     const {getByTestId} = render(
       <QueryClientProvider client={queryClient}>
