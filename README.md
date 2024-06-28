@@ -28,7 +28,7 @@ $ npm run android
 
 **Emulador iOS**
 
-En una terminal adicional a la de `Metro`, previo a iniciar el emulador ejecutar:
+En una terminal adicional a la de `Metro`, previo a iniciar el emulador, ejecutar:
 
 ```bash
 $ buncle exec pod install
