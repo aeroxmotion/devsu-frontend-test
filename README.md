@@ -58,7 +58,7 @@ $ npm run test:cov
 
 _Coverage actual:_
 
-_TODO_
+<img width="1082" alt="image" src="https://github.com/aeroxmotion/devsu-frontend-test/assets/11183503/153785ae-7111-4717-a7e4-4fb08e34fb78">
 
 
 ## Demo
