@@ -64,6 +64,7 @@ _TODO_
 
 A continuación se muestra una demo de la aplicación ejecutándose en emuladores `Android` y `iOS`.
 
+
 | Android | iOS    |
 | ------- | ------ |
-| _TODO_  | _TODO_ |
+| https://github.com/aeroxmotion/devsu-frontend-test/assets/11183503/a5c92503-05f5-4a6b-a461-82239dc60c1e  | _TODO_ |
