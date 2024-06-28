@@ -6,7 +6,7 @@ import {ThemeColor} from '../../constants';
 
 export const ProductListScreenLoading: FC = () => {
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView testID="product-list-loading" style={styles.container}>
       <SkeletonPlaceholder borderRadius={6}>
         {
           [...Array(5)].map((_, i) => (

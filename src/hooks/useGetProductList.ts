@@ -9,6 +9,7 @@ const httpProductClient = new HTTPProductClient();
 
 export const useGetProductList = () =>
   useQuery(PRODUCT_LIST_QUERY_KEY, () => httpProductClient.getList(), {
+    retry: 0,
     onError() {
       Toast.show({
         type: 'error',

@@ -7,6 +7,7 @@ import {DefaultHTTPResponse} from '../types';
 export class HTTPProductClient {
   private _client = ky.extend({
     prefixUrl: BASE_HTTP_API_URL,
+    retry: 0,
   });
 
   getList() {

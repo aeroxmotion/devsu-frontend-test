@@ -1,7 +1,7 @@
 import {useMutation} from 'react-query';
 import Toast from 'react-native-toast-message';
 
-import {queryClient} from '../../App';
+import {queryClient} from '../queryClient';
 import {HTTPProductClient, IProduct} from '../api';
 import {PRODUCT_LIST_QUERY_KEY} from './useGetProductList';
 
