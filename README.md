@@ -40,6 +40,26 @@ Esto para instalar las dependencias requeridas sobre `iOS`. Una vez instaladas, 
 $ npm run ios
 ```
 
+## Testing
+
+Para ejecutar las pruebas, ejecutar el siguiente comando:
+
+**Sin coverage:**
+
+```bash
+$ npm run test
+```
+
+**Con coverage:**
+
+```bash
+$ npm run test:cov
+```
+
+_Coverage actual:_
+
+_TODO_
+
 ## Demo
 
 A continuación se muestra una demo de la aplicación ejecutándose en emuladores `Android` y `iOS`.
