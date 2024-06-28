@@ -60,6 +60,7 @@ _Coverage actual:_
 
 _TODO_
 
+
 ## Demo
 
 A continuación se muestra una demo de la aplicación ejecutándose en emuladores `Android` y `iOS`.
@@ -67,4 +68,4 @@ A continuación se muestra una demo de la aplicación ejecutándose en emuladore
 
 | Android | iOS    |
 | ------- | ------ |
-| <video src="https://github.com/aeroxmotion/devsu-frontend-test/assets/11183503/a5c92503-05f5-4a6b-a461-82239dc60c1e">  | _TODO_ |
+| <video src="https://github.com/aeroxmotion/devsu-frontend-test/assets/11183503/a5c92503-05f5-4a6b-a461-82239dc60c1e">  | <video src="https://github.com/aeroxmotion/devsu-frontend-test/assets/11183503/0e4a0563-c730-4db5-9702-d48eff4bb5bc"> |
