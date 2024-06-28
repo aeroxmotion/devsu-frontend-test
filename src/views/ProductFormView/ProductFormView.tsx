@@ -67,6 +67,7 @@ export const ProductFormView: FC<ProductFormViewProps> = ({
             render={({field, fieldState}) => (
               <Input
                 label="ID"
+                testID="product-form-id"
                 disabled={!!product}
                 value={field.value}
                 onBlur={field.onBlur}
@@ -83,6 +84,7 @@ export const ProductFormView: FC<ProductFormViewProps> = ({
             render={({field, fieldState}) => (
               <Input
                 label="Nombre"
+                testID="product-form-name"
                 value={field.value}
                 onBlur={field.onBlur}
                 onChangeText={field.onChange}
@@ -98,6 +100,7 @@ export const ProductFormView: FC<ProductFormViewProps> = ({
             render={({field, fieldState}) => (
               <Input
                 label="Descripción"
+                testID="product-form-description"
                 value={field.value}
                 onBlur={field.onBlur}
                 onChangeText={field.onChange}
@@ -113,6 +116,7 @@ export const ProductFormView: FC<ProductFormViewProps> = ({
             render={({field, fieldState}) => (
               <Input
                 label="Logo"
+                testID="product-form-logo"
                 value={field.value}
                 onBlur={field.onBlur}
                 onChangeText={field.onChange}
@@ -128,6 +132,7 @@ export const ProductFormView: FC<ProductFormViewProps> = ({
             render={({field, fieldState}) => (
               <Input
                 editable={false}
+                testID="product-form-date-release"
                 label="Fecha Liberación"
                 onPress={() => setOpenDateReleasePicker(true)}
                 onFocus={() => setOpenDateReleasePicker(true)}
@@ -144,6 +149,7 @@ export const ProductFormView: FC<ProductFormViewProps> = ({
             render={({field, fieldState}) => (
               <Input
                 disabled
+                testID="product-form-date-revision"
                 label="Fecha Revisión"
                 value={formatDate(field.value)}
                 error={fieldState.error?.message}

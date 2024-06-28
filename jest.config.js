@@ -1,5 +1,5 @@
 module.exports = {
   preset: 'react-native',
   transformIgnorePatterns: [],
-  testPathIgnorePatterns: ['utils'],
+  testPathIgnorePatterns: ['utils', 'mocks'],
 };
